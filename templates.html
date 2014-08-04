@@ -1,0 +1,31 @@
+<head>
+  <title>iron-router-redirect-bug</title>
+</head>
+
+<template name="layout">
+    {{> yield }}
+</template>
+
+<template name="index">
+    <h1>Index page</h1>
+
+    {{# if currentUser }}
+        <p>You are logged in as {{ currentUser.name }}</p>
+        <div>
+            <a href="{{ pathFor 'profile' }}">Link to "/profile" with redirect to "/profile/settings"</a>
+        </div>
+        <div>
+            <a href="{{ pathFor 'profile' section='settings' }}">Link to "/profile/settings" without redirect</a>
+        </div>
+    {{ else }}
+        <p>You are NOT LOGGED IN</p>
+        <button class="login" type="button">Login</button>
+    {{/ if }}
+</template>
+
+<template name="profile">
+    <h1>Profile page</h1>
+
+    <p>Current section is: {{ section }}</p>
+    <button class="logout" type="button">Logout</button>
+</template>
