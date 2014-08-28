@@ -12,10 +12,10 @@
     {{# if currentUser }}
         <p>You are logged in as {{ currentUser.name }}</p>
         <div>
-            <a href="{{ pathFor 'profile' }}">Link to "/profile" with redirect to "/profile/settings"</a>
+            <a href="{{ pathFor 'profile' }}">Link to "/profile" with redirect to "/profile/settings" (logout works incorrect)</a>
         </div>
         <div>
-            <a href="{{ pathFor 'profile' section='settings' }}">Link to "/profile/settings" without redirect</a>
+            <a href="{{ pathFor 'profile' section='settings' }}">Link to "/profile/settings" without redirect (logout works correct)</a>
         </div>
     {{ else }}
         <p>You are NOT LOGGED IN</p>
