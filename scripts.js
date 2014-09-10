@@ -4,6 +4,8 @@ function loggedInFilter() {
     if (!loggedIn) {
         return this.redirect('index', null, { replaceState: true });
     }
+    
+    this.next();
 }
 
 UI.registerHelper('currentUser', function () {
@@ -30,6 +32,7 @@ Router.map(function () {
                 if (section !== 'settings') {
                     this.redirect('profile', { section: 'settings' }, { replaceState: true });
                 }
+                this.next();
             }
         ],
         data: function () {
